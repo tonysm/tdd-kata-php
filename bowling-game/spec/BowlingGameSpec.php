@@ -15,14 +15,14 @@ class BowlingGameSpec extends ObjectBehavior
     }
     
     /** @test */
-    function it_scores_the_sum_of_all_knocked_down_pins_for_a_game()
+    function it_scores_the_sum_of_all_pins_for_a_game()
     {
         $this->rollTimes(20, 1);
         $this->score()->shouldBe(20);
     }
 
     /** @test */
-    function it_scores_the_spare()
+    function it_scores_a_spare()
     {
         $this->rollSpare();
         $this->roll(5);
@@ -33,7 +33,7 @@ class BowlingGameSpec extends ObjectBehavior
     }
     
     /** @test */
-    function it_awards_a_two_roll_bonus_for_a_strike_in_the_previous_frame()
+    function it_scores_a_strike()
     {
         $this->rollStrike();
         $this->roll(7);
@@ -41,6 +41,14 @@ class BowlingGameSpec extends ObjectBehavior
         $this->rollTimes(17, 0);
 
         $this->score()->shouldBe(28);
+    }
+
+    /** @test */
+    function it_scores_a_perfect_game()
+    {
+        $this->rollTimes(12, 10);
+
+        $this->score()->shouldBe(300);
     }
 
     /** @test */
