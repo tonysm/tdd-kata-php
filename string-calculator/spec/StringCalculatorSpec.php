@@ -41,14 +41,27 @@ class StringCalculatorSpec extends ObjectBehavior
     }
 
     /** @test */
-    function xit_allows_user_to_change_the_delimiter()
+    function it_allows_user_to_change_the_delimiter()
     {
         $this->add(";\n1;2;3")->shouldBe(6);
     }
 
     /** @test */
-    function xit_should_throw_exception_with_invalid_input()
+    function it_throws_exception_when_negatives_are_given()
     {
-        $this->shouldThrow('InvalidArgumentException')->duringAdd("1,\n");
+        $this->shouldThrow("InvalidArgumentException")->duringAdd("-1");
+    }
+
+    /** @test */
+    function it_shows_the_negatives_numbers_in_the_exception()
+    {
+        $exception = new \InvalidArgumentException("Negatives not allowed: -1,-2");
+        $this->shouldThrow($exception)->duringAdd("-1,-2,3");
+    }
+
+    /** @test */
+    function it_can_change_the_delimiter_to_minus()
+    {
+        $this->add("-\n1-2")->shouldBe(3);
     }
 }
