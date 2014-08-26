@@ -43,7 +43,9 @@ class BowlingGame
             {
                 $score += 10 + $this->getSpareBonus($roll);
                 $roll += 2;
-            } else {
+            }
+            else
+            {
                 $score += $this->getDefaultFrameScore($roll);
                 $roll += 2;
             }
