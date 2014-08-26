@@ -36,9 +36,7 @@ class StringCalculator
 
         $this->guardAgainstNegativeNumbers($numbers);
 
-        $numbers = $this->splitStringInNumbers($numbers);
-
-        return array_sum($numbers);
+        return array_sum($this->splitStringInNumbers($numbers));
     }
 
     /**
