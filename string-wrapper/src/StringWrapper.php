@@ -29,7 +29,7 @@ class StringWrapper
     {
         $breakpoint = $this->getLastOccurrenceOfSpaceBeforeLineBreak($text, $maxLength);
 
-        return ! $breakpoint ? $maxLength : $breakpoint;
+        return $breakpoint ?: $maxLength;
     }
 
     /**
@@ -39,8 +39,7 @@ class StringWrapper
      */
     private function getLastOccurrenceOfSpaceBeforeLineBreak($text, $maxLength)
     {
-        $breakpoint = strrpos(mb_substr($text, 0, $maxLength), " ");
-        return $breakpoint;
+        return strrpos(mb_substr($text, 0, $maxLength), " ");
     }
 
     /**
