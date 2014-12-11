@@ -32,6 +32,9 @@ class TennisMatch
         $this->playerTwo = $playerTwo;
     }
 
+    /**
+     * @return string
+     */
     public function score()
     {
         if ($this->hasWinner())
