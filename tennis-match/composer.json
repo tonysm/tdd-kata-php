@@ -1,0 +1,21 @@
+{
+    "name": "tonysm/tdd-katas",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tony Messias",
+            "email": "tonyzrp@gmail.com"
+        }
+    ],
+    "require": {
+
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~2.0.1"
+    },
+    "autoload": {
+        "psr-0": {
+            "": "./src"
+        }
+    }
+}
